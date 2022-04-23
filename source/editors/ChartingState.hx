@@ -2720,7 +2720,7 @@ class ChartingState extends MusicBeatState
 
 		if ((data != null) && (data.length > 0))
 		{
-			#if android
+		        #if android
                         sys.io.File.saveContent(Main.getDataPath() + Paths.formatToSongPath(_song.song) + ".json", data.trim());
                         android.AndroidTools.toast("File Saved Successfully!!");
                         #else
@@ -2729,6 +2729,7 @@ class ChartingState extends MusicBeatState
 			_file.addEventListener(Event.CANCEL, onSaveCancel);
 			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
 			_file.save(data.trim(), Paths.formatToSongPath(_song.song) + ".json");
+			#end
 		}
 	}
 
